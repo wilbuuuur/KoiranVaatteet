@@ -7,7 +7,7 @@ import javax.persistence.Id;
 
 
 @Entity
-public class KoiranVaatteet {
+public class Vaate {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
@@ -16,11 +16,11 @@ public class KoiranVaatteet {
 	private double price;
 	private String manufacturer;
 	
-	public KoiranVaatteet () {
+	public Vaate () {
 		
 	}
 	
-	public KoiranVaatteet (String name, String type, double price, String manufacturer) {
+	public Vaate (String name, String type, double price, String manufacturer) {
 		super();
 		this.name = name;
 		this.type = type;

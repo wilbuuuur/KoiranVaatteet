@@ -1,16 +1,12 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
-    <title>Booklist</title>
+    <title>Tuotteet</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
 	<h1>Tuotteet</h1>
-	<div>
-		<h3 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h3>
-	
-	</div>
-    
+
     <table>
 		<tr>
 		    <th>ID</th>
@@ -25,7 +21,7 @@
     		<td th:text="${vaate.name}"></td>
     		<td th:text="${vaate.type}"></td>
     		<td th:text="${vaate.price}"></td>
-    		<td th:text="${book.category.name}"></td>
+    		<td th:text="${vaate.manufacturer}"></td>
     		<td><a th:href="@{/muokkaa/{id}(id=${vaate.id})}">Muokkaa</a></td>  
  			<td><a th:href="@{/poista/{id}(id=${vaate.id})}">Poista</a></td>
  			 		
