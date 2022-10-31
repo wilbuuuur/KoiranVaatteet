@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <title>Booklist</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Tuotteet</h1>
+	<div>
+		<h3 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h3>
+	
+	</div>
+    
+    <table>
+		<tr>
+		    <th>ID</th>
+		    <th>NIMI</th>
+		    <th>TYYPPI</th>
+		    <th>HINTA</th>
+		    <th>VALMISTAJA</th>
+		    
+		</tr>  
+    	<tr th:each = "vaate : ${vaatteet}">
+    		<td th:text="${vaate.id}"></td>
+    		<td th:text="${vaate.name}"></td>
+    		<td th:text="${vaate.type}"></td>
+    		<td th:text="${vaate.price}"></td>
+    		<td th:text="${book.category.name}"></td>
+    		<td><a th:href="@{/muokkaa/{id}(id=${vaate.id})}">Muokkaa</a></td>  
+ 			<td><a th:href="@{/poista/{id}(id=${vaate.id})}">Poista</a></td>
+ 			 		
+    	</tr>
+     </table>
+	 <a href="/add">Lisää vaate</a>
+	 <br>
+	 <a href="/">Paluu pääsivulle</a>
+</body>
+</html>
