@@ -15,10 +15,21 @@ public class KoiranVaatteetController {
 @Autowired
 private KoiranVaatteetRepository vaateRepository;
 
+@RequestMapping(value = ("/"), method = RequestMethod.GET)
+public String etusivu() {
+	return "etusivu";
+}
+
 @RequestMapping(value = "/vaatteet", method = RequestMethod.GET)
 	public String list (Model model) {
 	model.addAttribute("vaatteet", vaateRepository.findAll());
 	return "vaatteet";
+}
+
+@RequestMapping(value = "/muokkaa/{id}", method = RequestMethod.GET)
+public String editVaate(@PathVariable("id") Long vaateId, Model model) {
+	model.addAttribute("vaate", vaateRepository.findById(vaateId));
+	return "muokkaa";
 }
 
 @RequestMapping(value = "/poista/{id}", method = RequestMethod.GET)
