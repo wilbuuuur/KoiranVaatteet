@@ -10,17 +10,17 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import tiimi3.KoiranVaatteet.domain.Vaate;
-import tiimi3.KoiranVaatteet.domain.VaateRepository;
+import tiimi3.KoiranVaatteet.domain.KoiranVaatteetRepository;
 
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
 public class VaateRepositoryTest {
 	@Autowired
-	private VaateRepository repository;
+	private KoiranVaatteetRepository vrepository;
 	
 	@Test 
 	public void findByNameShouldReturnVaate() {
-		List<Vaate> vaatteet= repository.findByName("vaate");
+		List<Vaate> vaatteet= vrepository.findByName("vaate");
 		
 		assertThat(vaatteet).hasSize(1);
 		assertThat(vaatteet.get(0).getType()).isEqualTo("paita");
@@ -28,7 +28,7 @@ public class VaateRepositoryTest {
 	@Test
 	public void luoUusiVaate() {
 		Vaate vaate= new Vaate("Coolbeans","paita",99.85,"Pirkka");
-		repository.save(vaate);
+		vrepository.save(vaate);
 		assertThat(vaate.getId()).isNotNull();
 	}
 }
