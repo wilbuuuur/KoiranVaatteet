@@ -21,9 +21,9 @@
 			<input type="text" id="price" th:field="*{price}" />
 			<div style="clear: both; display: block; height: 10px;"></div>
 			
-			<label for="valmistaja">Valmistaja</label>
+			<label for="deplist">Valmistaja</label>
 			<select id="deplist" th:field="*{valmistaja}" class="form-control">
-				<option th:each="valmistaja: ${valmistajat}" th:value="${valmistaja.valmistajaid" th:text=${valmistaja.name}></option>
+				<option th:each="valmistaja: ${valmistajat}" th:value="${valmistaja.valmistajaid}" th:text=${valmistaja.name}></option>
 			</select>
 			<div style="clear: both; display: block; height: 10px;"></div>
 

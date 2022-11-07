@@ -9,11 +9,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import tiimi3.KoiranVaatteet.domain.KoiranVaatteetRepository;
 import tiimi3.KoiranVaatteet.domain.Vaate;
+import tiimi3.KoiranVaatteet.domain.ValmistajaRepository;
 
 @Controller
 public class KoiranVaatteetController {
 @Autowired
 private KoiranVaatteetRepository vaateRepository;
+
+@Autowired
+private ValmistajaRepository valmistajaRepository;
 
 @RequestMapping(value = ("/"), method = RequestMethod.GET)
 public String etusivu() {
@@ -29,6 +33,7 @@ public String etusivu() {
 @RequestMapping(value = "/muokkaa/{id}", method = RequestMethod.GET)
 public String editVaate(@PathVariable("id") Long vaateId, Model model) {
 	model.addAttribute("vaate", vaateRepository.findById(vaateId));
+	model.addAttribute("valmistajat", valmistajaRepository.findAll());
 	return "muokkaa";
 }
 
@@ -41,6 +46,7 @@ public String deleteVaate (@PathVariable("id") Long vaateId, Model model) {
 @RequestMapping(value = "/lisaa")
 public String addVaate (Model model){
 	model.addAttribute("vaate", new Vaate());
+	model.addAttribute("valmistajat", valmistajaRepository.findAll());
     return "lisaa";
 }
 

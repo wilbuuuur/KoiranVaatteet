@@ -9,9 +9,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 public class Valmistaja {
 	@Id
+	@JsonIgnoreProperties("valmistaja")
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long valmistajaid;
 	private String name;
@@ -52,7 +55,7 @@ public class Valmistaja {
 
 	@Override
 	public String toString() {
-		return "Valmistaja [valmistajaid=" + valmistajaid + ", name=" + name + ", vaatteet=" + vaatteet + "]";
+		return "Valmistaja [valmistajaid=" + valmistajaid + ", name=" + name + "]";
 	}
 	
 }
