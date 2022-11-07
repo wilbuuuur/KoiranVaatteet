@@ -34,4 +34,10 @@ public class VaateRepositoryTest {
 		vrepository.save(vaate);
 		assertThat(vaate.getId()).isNotNull();
 	}
+	@Test
+	public void poistaVaate() {
+		vrepository.delete(vrepository.findByName("vaate").get(0));
+		List<Vaate> vaatteet=vrepository.findByName("vaate");
+		assertThat(vaatteet).hasSize(0);
+	}
 }
