@@ -21,7 +21,7 @@
     		<td th:text="${vaate.name}"></td>
     		<td th:text="${vaate.type}"></td>
     		<td th:text="${vaate.price}"></td>
-    		<td th:text="${vaate.manufacturer}"></td>
+    		<td th:text="${vaate.valmistaja.name}"></td>
     		<td><a th:href="@{/muokkaa/{id}(id=${vaate.id})}">Muokkaa</a></td>  
  			<td><a th:href="@{/poista/{id}(id=${vaate.id})}">Poista</a></td>
  			 		

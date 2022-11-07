@@ -4,6 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
 @Entity
@@ -14,18 +18,22 @@ public class Vaate {
 	private String name;
 	private String type;
 	private double price;
-	private String manufacturer;
+	
+	@ManyToOne
+	@JsonIgnoreProperties("vaatteet")
+	@JoinColumn(name = ("valmistajaid"))
+	private Valmistaja valmistaja;
 	
 	public Vaate () {
 		
 	}
 	
-	public Vaate (String name, String type, double price, String manufacturer) {
+	public Vaate (String name, String type, double price, Valmistaja valmistaja) {
 		super();
 		this.name = name;
 		this.type = type;
 		this.price = price;
-		this.manufacturer = manufacturer;			
+		this.valmistaja = valmistaja;
 	}
 
 	public long getId() {
@@ -44,8 +52,8 @@ public class Vaate {
 		return price;
 	}
 
-	public String getManufacturer() {
-		return manufacturer;
+	public Valmistaja getValmistaja() {
+		return valmistaja;
 	}
 
 	public void setId(long id) {
@@ -64,14 +72,17 @@ public class Vaate {
 		this.price = price;
 	}
 
-	public void setManufacturer(String manufacturer) {
-		this.manufacturer = manufacturer;
+	public void setValmistaja(Valmistaja valmistaja) {
+		this.valmistaja = valmistaja;
 	}
 
 	@Override
 	public String toString() {
-		return "KoiranVaatteet [id=" + id + ", name=" + name + ", type=" + type + ", price=" + price + ", manufacturer="
-				+ manufacturer + "]";
+		if (this.valmistaja != null)
+			return "KoiranVaatteet [id=" + id + ", name=" + name + ", type=" + type + ", price=" + price + ", valmistaja="
+				+ this.getValmistaja() + "]";
+		else
+			return "KoiranVaatteet [id=" + id + ", name=" + name + ", type=" + type + ", price=" + price + "]";
 	}
 	
 }

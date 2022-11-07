@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Vlamistajat</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Valmistajat</h1>
+    <table>
+		<tr>
+		    <th>Nimi</th>
+		    
+		</tr>  
+    	<tr th:each = "valmistaja : ${valmistajat}">
+    		<td th:text="${valmistaja.name}"></td>
+    			
+  		
+    	</tr>
+     </table>
+	<a href="/lisaavalmistaja">Lisää valmistaja</a>
+	<br>
+	<a href="/valmistajat">vaatteet</a>
+	
+</body>
+</html>
