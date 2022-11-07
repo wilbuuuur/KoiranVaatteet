@@ -15,7 +15,7 @@ public class ValmistajaController {
 	
 	@RequestMapping(value = "valmistajat", method = RequestMethod.GET)
 	public String valmistajat(Model model) {
-		model.addAttribute("valmistjat", vrepository.findAll());
+		model.addAttribute("valmistajat", vrepository.findAll());
 		return "valmistajat";
 	}
 	
