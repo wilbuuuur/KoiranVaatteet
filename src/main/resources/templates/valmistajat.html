@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Vlamistajat</title>
+    <title>Valmistajat</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
@@ -9,17 +9,21 @@
     <table>
 		<tr>
 		    <th>Nimi</th>
+		    <th></th>
 		    
 		</tr>  
     	<tr th:each = "valmistaja : ${valmistajat}">
     		<td th:text="${valmistaja.name}"></td>
-    			
+    		<td><a th:href="@{/valmistajat/poista/{id}(id=${valmistaja.valmistajaid})}">Poista</a></td>
   		
     	</tr>
      </table>
-	<a href="/lisaavalmistaja">Lisää valmistaja</a>
-	<br>
-	<a href="/valmistajat">vaatteet</a>
-	
+    <div>
+		<a href="/valmistajat/lisaa">Lisää valmistaja</a>
+		<br>
+		<a href="/vaatteet">Vaatteet</a>
+		<br>
+		<a href="/">Etusivu</a>
+	</div>
 </body>
 </html>
