@@ -6,6 +6,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -15,8 +18,14 @@ public class Vaate {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
+	@NotNull
+	@Size(min=3, max=30)
 	private String name;
+	@NotNull
+	@Size(min=3, max=30)
 	private String type;
+	@NotNull
+	@Min(0)
 	private double price;
 	
 	@ManyToOne

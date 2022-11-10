@@ -1,8 +1,11 @@
 package tiimi3.KoiranVaatteet.web;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -51,8 +54,12 @@ public String addVaate (Model model){
 }
 
 @RequestMapping(value = "/tallenna", method = RequestMethod.POST)
-public String save(Vaate vaate){
-    vaateRepository.save(vaate);
+public String save(@Valid Vaate vaate, BindingResult bindingResult){
+	
+	if (bindingResult.hasErrors()) {
+		return "redirect:lisaa";
+	}
+	vaateRepository.save(vaate);
     return "redirect:vaatteet";
 }
 
