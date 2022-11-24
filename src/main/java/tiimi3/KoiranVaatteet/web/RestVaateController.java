@@ -65,7 +65,7 @@ public class RestVaateController {
 
 	@PutMapping("/rest/valmistajat/{id}")
 	Valmistaja editValmistaja(@RequestBody Valmistaja muokattuValmistaja, @PathVariable Long id) {
-		muokattuValmistaja.setValmistajaId(id);
+		muokattuValmistaja.setValmistajaid(id);
 		return vrepo.save(muokattuValmistaja);
 	}
 
