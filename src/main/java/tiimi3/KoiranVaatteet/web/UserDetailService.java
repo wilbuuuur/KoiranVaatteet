@@ -7,6 +7,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import tiimi3.KoiranVaatteet.domain.User;
+import tiimi3.KoiranVaatteet.domain.UserRepository;
+
 /**
  * Spring security luokka käyttää tätä käyttäjän autentikointiin ja valtuutuukseen
  **/
