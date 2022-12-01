@@ -1,14 +1,14 @@
 REST palvelut:
 
-1. Näytä kaikki vaatteet->http://localhost:8080/api/vaatteet
-2. Lisää uusi vaate->http://localhost:8080/api/vaatteet
-3. Muokkaa vaatteita->http://localhost:8080/api/vaatteet/{id}
-4. Poista vaate->http://localhost:8080/api/vaatteet/{id}
+1. Näytä kaikki vaatteet->http://localhost:8080/rest/vaatteet
+2. Lisää uusi vaate->http://localhost:8080/rest/vaatteet
+3. Muokkaa vaatteita->http://localhost:8080/rest/vaatteet/{id}
+4. Poista vaate->http://localhost:8080/rest/vaatteet/{id}
 
 
 1. Näytä kaikki vaatteet
 HTTP metodi: GET 
-API kutsu: http://localhost:8080/api/vaatteet
+API kutsu: http://localhost:8080/rest/vaatteet
 Request body
 -
 Response example below:
@@ -17,7 +17,7 @@ Response example below:
 
 2. Lisää uusi vaate
 HTTP metodi: POST
-Api kutsu: http://localhost:8080/api/vaatteet
+Api kutsu: http://localhost:8080/rest/vaatteet
 Request body:
 
 [{"id":3,"name":"vaate2","type":"paita2","price":199.99,"valmistaja":{"valmistajaid":1,"name":"Hurtta"}}]
@@ -32,7 +32,7 @@ HTTP metodi: PUT
 
 Request body:
 
-API kutsu: http://localhost:8080/api/vaatteet/2
+API kutsu: http://localhost:8080/rest/vaatteet/2
 
 [{"id":2,"name":"vaate_edit","type":"paita_edit","price":9.99,"valmistaja":{"valmistajaid":1,"name":"Hurtta"}}]
 
@@ -43,7 +43,7 @@ Response esimerkki (Status 200 OK):
 4.Poista vaate
 HTTP metodi:DELETE
 
-API kutsu: http://localhost:8080/api/vaatteet/2
+API kutsu: http://localhost:8080/rest/vaatteet/2
 
 Request body:-
 
