@@ -3,6 +3,7 @@ package tiimi3.KoiranVaatteet.web;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -34,6 +35,7 @@ public String etusivu() {
 }
 
 @RequestMapping(value = "/muokkaa/{id}", method = RequestMethod.GET)
+@PreAuthorize("hasAuthority('ADMIN')")
 public String editVaate(@PathVariable("id") Long vaateId, Model model) {
 	model.addAttribute("vaate", vaateRepository.findById(vaateId));
 	model.addAttribute("valmistajat", valmistajaRepository.findAll());
@@ -41,12 +43,14 @@ public String editVaate(@PathVariable("id") Long vaateId, Model model) {
 }
 
 @RequestMapping(value = "/poista/{id}", method = RequestMethod.GET)
+@PreAuthorize("hasAuthority('ADMIN')")
 public String deleteVaate (@PathVariable("id") Long vaateId, Model model) {
 	vaateRepository.deleteById(vaateId);
 	return "redirect:../vaatteet";
 }
 
 @RequestMapping(value = "/lisaa")
+@PreAuthorize("hasAuthority('ADMIN')")
 public String addVaate (Model model){
 	model.addAttribute("vaate", new Vaate());
 	model.addAttribute("valmistajat", valmistajaRepository.findAll());
