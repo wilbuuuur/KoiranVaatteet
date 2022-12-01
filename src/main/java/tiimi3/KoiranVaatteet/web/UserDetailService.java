@@ -8,11 +8,12 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 /**
- * This class is used by spring security to authenticate and authorize user
+ * Spring security luokka käyttää tätä käyttäjän autentikointiin ja valtuutuukseen
  **/
 
 @Service
 public class UserDetailService implements UserDetailsService  {
+	//liitetään käyttäjien repository
 	private final UserRepository repository;
 
 	@Autowired

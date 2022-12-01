@@ -19,7 +19,8 @@ import tiimi3.KoiranVaatteet.web.UserDetailService;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailService userDetailsService;	
-	
+
+    //Määritellään sallitut endpointit
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
