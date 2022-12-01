@@ -1,6 +1,7 @@
 package tiimi3.KoiranVaatteet.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,12 +24,14 @@ public class ValmistajaController {
 	}
 	
 	@RequestMapping(value = "/valmistajat/poista/{id}", method = RequestMethod.GET)
+	@PreAuthorize("hasAuthority('ADMIN')")
 	public String deleteValmistaja(@PathVariable("id") Long valmistajaid, Model model) {
 		vrepository.deleteById(valmistajaid);
 		return "redirect:../../valmistajat";
 	}
 	
 	@RequestMapping(value = "/valmistajat/lisaa", method = RequestMethod.GET)
+	@PreAuthorize("hasAuthority('ADMIN')")
 	public String addValmistaja(Model model) {
 		model.addAttribute("valmistaja", new Valmistaja());
 		return "lisaavalmistaja";
