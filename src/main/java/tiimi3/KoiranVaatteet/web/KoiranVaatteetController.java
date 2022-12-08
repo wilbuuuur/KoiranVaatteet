@@ -49,6 +49,12 @@ public String deleteVaate (@PathVariable("id") Long vaateId, Model model) {
 	return "redirect:../vaatteet";
 }
 
+//määrittelee kirjautumissivun
+@RequestMapping(value="/login")
+public String login() {	
+    return "login";
+}
+
 @RequestMapping(value = "/lisaa")
 @PreAuthorize("hasAuthority('ADMIN')")
 public String addVaate (Model model){
