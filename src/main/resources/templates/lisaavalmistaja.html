@@ -10,12 +10,12 @@
 		<form th:object="${valmistaja}" th:action="@{../valmistajat/tallenna}" action="#" method="post">
 		
 		  	<label for="name">Valmistaja</label>
-			<input type="text" id="name" th:field="*{name}" />
+			<input type="text" id="name" th:field="*{name}" class="form-control"/>
 			<div style="clear: both; display: block; height: 10px;"></div>
 			
 			
 
-			<input type="submit" value="Tallenna"></input>
+			<input type="submit" value="Tallenna" class="btn btn-primary"></input>
 		</form>
 	</div>
 </body>

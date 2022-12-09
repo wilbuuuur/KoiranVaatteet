@@ -8,18 +8,18 @@
 	<h1>Muokkaa Vaatetta</h1>
 	<div>
 		<form th:object="${vaate}" th:action="@{../tallenna}" action="#" method="post">
-			<input type="hidden" id="id" th:field="*{id}"/>
+			<input type="hidden" id="id" th:field="*{id}"/ class="form-control">
 		
 		  	<label for="name">Nimi</label>
-			<input type="text" id="name" th:field="*{name}" />
+			<input type="text" id="name" th:field="*{name}" class="form-control"/>
 			<div style="clear: both; display: block; height: 10px;"></div>
 			
 		  	<label for="type">Tyyppi</label>
-			<input type="text" id="type" th:field="*{type}" />
+			<input type="text" id="type" th:field="*{type}" class="form-control"/>
 			<div style="clear: both; display: block; height: 10px;"></div>
 			
 		  	<label for="price">Hinta</label>
-			<input type="text" id="price" th:field="*{price}" />
+			<input type="text" id="price" th:field="*{price}" class="form-control"/>
 			<div style="clear: both; display: block; height: 10px;"></div>
 			
 			<label for="deplist">Valmistaja</label>
@@ -28,7 +28,7 @@
     		</select>
 			<div style="clear: both; display: block; height: 10px;"></div>
 
-			<input type="submit" value="Tallenna"></input>
+			<input type="submit" class="btn btn-primary" value="Tallenna"></input>
 		</form>
 	</div>
 </body>

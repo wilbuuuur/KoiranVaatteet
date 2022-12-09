@@ -3,10 +3,11 @@
 <head>
     <title>Valmistajat</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" th:href="@{../css/bootstrap.min.css}" />
 </head>
 <body>
 	<h1>Valmistajat</h1>
-    <table>
+    <table class="table table-striped">
 		<tr>
 		    <th>Nimi</th>
 		    <th></th>
@@ -19,11 +20,11 @@
     	</tr>
      </table>
     <div>
-		<a href="/valmistajat/lisaa">Lisää valmistaja</a>
+		<a href="/valmistajat/lisaa" class="btn btn-primary">Lisää valmistaja</a>
 		<br>
-		<a href="/vaatteet">Vaatteet</a>
+		<a href="/vaatteet" class="btn btn-primary">Vaatteet</a>
 		<br>
-		<a href="/">Etusivu</a>
+		<a href="/" class="btn btn-primary">Etusivu</a>
 	</div>
 </body>
 </html>
