@@ -15,7 +15,7 @@
 		</tr>  
     	<tr th:each = "valmistaja : ${valmistajat}">
     		<td th:text="${valmistaja.name}"></td>
-    		<td><a th:href="@{/valmistajat/poista/{id}(id=${valmistaja.valmistajaid})}">Poista</a></td>
+    		<td><a th:href="@{/valmistajat/poista/{id}(id=${valmistaja.valmistajaid})}" class="btn btn-danger btn-sm">Poista</a></td>
   		
     	</tr>
      </table>
