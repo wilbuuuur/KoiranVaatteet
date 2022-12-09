@@ -26,7 +26,7 @@ public class LoginController {
 	@Autowired	
 	AuthenticationManager authenticationManager;
 
-	@RequestMapping(value="/loginn", method=RequestMethod.POST)
+	@RequestMapping(value="/loginn", consumes = {"*/*"}, method=RequestMethod.POST)
 	public ResponseEntity<?> getToken(@RequestBody AccountCredentials credentials) {
 		UsernamePasswordAuthenticationToken creds =
 				new UsernamePasswordAuthenticationToken(
