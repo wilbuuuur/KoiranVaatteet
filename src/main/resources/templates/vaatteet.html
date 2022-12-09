@@ -23,8 +23,10 @@
     		<td th:text="${vaate.type}"></td>
     		<td th:text="${vaate.price}"></td>
     		<td th:text="${vaate.valmistaja.name}"></td>
-    		<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/muokkaa/{id}(id=${vaate.id})}">Muokkaa</a></td>  
- 			<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/poista/{id}(id=${vaate.id})}">Poista</a></td>
+    		<td>
+    			<a  sec:authorize="hasAuthority('ADMIN')" th:href="@{/muokkaa/{id}(id=${vaate.id})}" class="btn btn-primary btn-sm">Muokkaa</a>  
+ 				<a  sec:authorize="hasAuthority('ADMIN')" th:href="@{/poista/{id}(id=${vaate.id})}" class="btn btn-danger btn-sm">Poista</a>
+ 			</td>
  			 		
     	</tr>
      </table>
