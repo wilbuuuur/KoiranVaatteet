@@ -30,7 +30,7 @@ public class WebSecurityConfig  {
 
     @Bean
     public SecurityFilterChain configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests()
+		http.csrf().disable().authorizeRequests()
 				.antMatchers("/", "/css/**" , "/login", "/logout", "/api/**", "/rest/**").permitAll() // Enable css when logged out
 				.and()
 				.authorizeRequests()
