@@ -15,9 +15,6 @@
 		    <th>HINTA</th>
 		    <th>VALMISTAJA</th>
 		    <th sec:authorize="hasAuthority('ADMIN')"></th>
-		    <th sec:authorize="hasAuthority('ADMIN')"></th>
-		    <th></th>
-		    
 		</tr>  
     	<tr th:each = "vaate : ${vaatteet}">
     		<td th:text="${vaate.name}"></td>
@@ -27,9 +24,7 @@
     		<td>
     			<a  sec:authorize="hasAuthority('ADMIN')" th:href="@{/muokkaa/{id}(id=${vaate.id})}" class="btn btn-primary btn-sm">Muokkaa</a>  
  				<a  sec:authorize="hasAuthority('ADMIN')" th:href="@{/poista/{id}(id=${vaate.id})}" class="btn btn-danger btn-sm">Poista</a>
- 			</td>
- 			<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${vaate.id})}">Delete</a></td>
- 			 		
+ 			</td>	 		
     	</tr>
      </table>
 	 <a href="/lisaa" class="btn btn-primary">Lisää vaate</a>
