@@ -52,4 +52,11 @@ public class ValmistajaController {
 		model.addAttribute("vaatteet", kvrepository.findByValmistaja(valmistaja));
 		return "valmistajanvaatteet";
 	}
+	
+	@RequestMapping(value = "/valmistajat/muokkaa/{id}", method = RequestMethod.GET)
+	@PreAuthorize("hasAuthority('ADMIN')")
+	public String editValmistaja(@PathVariable("id") Long valmistajaId, Model model) {
+		model.addAttribute("valmistaja", vrepository.findById(valmistajaId));
+		return "muokkaavalmistaja";
+	}
 }
