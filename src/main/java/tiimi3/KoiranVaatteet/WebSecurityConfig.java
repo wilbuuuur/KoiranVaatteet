@@ -24,7 +24,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests().antMatchers("/**").permitAll() // Enable css when logged out
 				.and().authorizeRequests().anyRequest().authenticated().and().formLogin().defaultSuccessUrl("/", true)
-				.permitAll().and().logout().permitAll().and().exceptionHandling().accessDeniedPage("/unauthorized");
+				.permitAll().and().logout().permitAll().and().exceptionHandling().accessDeniedPage("/errorsivu");
 	}
 
 	@Autowired
