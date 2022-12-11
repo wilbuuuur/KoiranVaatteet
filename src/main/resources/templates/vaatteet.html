@@ -10,15 +10,15 @@
 
     <table class="table table-striped">
 		<tr>
-		    <th>ID</th>
 		    <th>NIMI</th>
 		    <th>TYYPPI</th>
 		    <th>HINTA</th>
 		    <th>VALMISTAJA</th>
+		    <th></th>
+		    <th></th>
 		    
 		</tr>  
     	<tr th:each = "vaate : ${vaatteet}">
-    		<td th:text="${vaate.id}"></td>
     		<td th:text="${vaate.name}"></td>
     		<td th:text="${vaate.type}"></td>
     		<td th:text="${vaate.price}"></td>
