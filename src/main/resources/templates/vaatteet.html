@@ -15,6 +15,7 @@
 		    <th>HINTA</th>
 		    <th>VALMISTAJA</th>
 		    <th></th>
+		    <th sec:authorize="hasAuthority('ADMIN')"></th>
 		    <th></th>
 		    
 		</tr>  
@@ -27,6 +28,7 @@
     			<a  sec:authorize="hasAuthority('ADMIN')" th:href="@{/muokkaa/{id}(id=${vaate.id})}" class="btn btn-primary btn-sm">Muokkaa</a>  
  				<a  sec:authorize="hasAuthority('ADMIN')" th:href="@{/poista/{id}(id=${vaate.id})}" class="btn btn-danger btn-sm">Poista</a>
  			</td>
+ 			<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${vaate.id})}">Delete</a></td>
  			 		
     	</tr>
      </table>
