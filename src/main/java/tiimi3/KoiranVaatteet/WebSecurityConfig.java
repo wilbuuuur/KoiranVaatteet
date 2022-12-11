@@ -43,20 +43,6 @@ public class WebSecurityConfig  {
 				.and()
 				.exceptionHandling().accessDeniedPage("/errorsivu");
 		return http.build();
-	}
-    
-    @Bean
-	CorsConfigurationSource corsConfigurationSource() {
-		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-		CorsConfiguration config = new CorsConfiguration();
-		config.setAllowedOrigins(Arrays.asList("*"));
-		config.setAllowedMethods(Arrays.asList("*"));
-		config.setAllowedHeaders(Arrays.asList("*"));
-		config.setAllowCredentials(false);
-		config.applyPermitDefaultValues();
-
-		source.registerCorsConfiguration("/**", config);
-		return source;
 	}	
 
 	@Autowired
