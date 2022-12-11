@@ -9,7 +9,9 @@
 	<div>
 		<form th:object="${valmistaja}" th:action="@{../tallenna}" action="#" method="post">
 		
+		
 		  	<label for="name">Valmistaja</label>
+		  	<input type="hidden" id="id" th:field="*{valmistajaid}"/ class="form-control">
 			<input type="text" id="name" th:field="*{name}" class="form-control"/>
 			<div style="clear: both; display: block; height: 10px;"></div>
 			
