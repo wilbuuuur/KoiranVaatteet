@@ -1,5 +1,7 @@
 package tiimi3.KoiranVaatteet;
 
+import java.util.Arrays;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,6 +12,9 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import tiimi3.KoiranVaatteet.web.UserDetailService;
 
@@ -39,6 +44,20 @@ public class WebSecurityConfig  {
 				.exceptionHandling().accessDeniedPage("/errorsivu");
 		return http.build();
 	}
+    
+    @Bean
+	CorsConfigurationSource corsConfigurationSource() {
+		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+		CorsConfiguration config = new CorsConfiguration();
+		config.setAllowedOrigins(Arrays.asList("*"));
+		config.setAllowedMethods(Arrays.asList("*"));
+		config.setAllowedHeaders(Arrays.asList("*"));
+		config.setAllowCredentials(false);
+		config.applyPermitDefaultValues();
+
+		source.registerCorsConfiguration("/**", config);
+		return source;
+	}	
 
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
