@@ -7,7 +7,7 @@
 <body>
 	<h1>Muokkaa valmistaja</h1>
 	<div>
-		<form th:object="${valmistaja}" th:action="@{../valmistajat/tallenna}" action="#" method="post">
+		<form th:object="${valmistaja}" th:action="@{../tallenna}" action="#" method="post">
 		
 		  	<label for="name">Valmistaja</label>
 			<input type="text" id="name" th:field="*{name}" class="form-control"/>
