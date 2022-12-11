@@ -50,6 +50,6 @@ public class ValmistajaController {
 	public String vaatteetByvalmistaja(@PathVariable("id") Long Id, Model model) {
 		Valmistaja valmistaja = vrepository.findByValmistajaid(Id);
 		model.addAttribute("vaatteet", kvrepository.findByValmistaja(valmistaja));
-		return "vaatteet";
+		return "valmistajanvaatteet";
 	}
 }

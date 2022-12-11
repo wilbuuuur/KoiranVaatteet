@@ -11,11 +11,12 @@
 		<tr>
 		    <th>Nimi</th>
 		    <th></th>
+		    <th></th>
 		    
 		</tr>  
     	<tr th:each = "valmistaja : ${valmistajat}">
     		<td th:text="${valmistaja.name}"></td>
-    		<td><a th:href="@{/valmistajanvaatteet/{id}(id=${valmistaja.valmistajaid})}">Vaatteet</a></td>
+    		<td><a th:href="@{/valmistajanvaatteet/{id}(id=${valmistaja.valmistajaid})}" class="btn btn-primary btn-sm">Vaatteet</a></td>
     		<td><a th:href="@{/valmistajat/poista/{id}(id=${valmistaja.valmistajaid})}" class="btn btn-danger btn-sm">Poista</a></td>
   		
     	</tr>

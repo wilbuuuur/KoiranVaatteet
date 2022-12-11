@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <title>Valmistajan Vaatteet</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+	<h1>Valmistajan Vaatteet</h1>
+
+    <table class="table table-striped">
+		<tr>
+		    <th>NIMI</th>
+		    <th>TYYPPI</th>
+		    <th>HINTA</th>
+		    <th>VALMISTAJA</th>
+		    <th sec:authorize="hasAuthority('ADMIN')"></th>
+		</tr>  
+    	<tr th:each = "vaate : ${vaatteet}">
+    		<td th:text="${vaate.name}"></td>
+    		<td th:text="${vaate.type}"></td>
+    		<td th:text="${vaate.price}"></td>
+    		<td th:text="${vaate.valmistaja.name}"></td>
+    		<td>
+    			<a  sec:authorize="hasAuthority'ADMIN')" th:href="@{/muokkaa/{id}(id=${vaate.id})}" class="btn btn-primary btn-sm">Muokkaa</a>  
+ 				<a  sec:authorize="hasAuthority('ADMIN')" th:href="@{/poista/{id}(id=${vaate.id})}" class="btn btn-danger btn-sm">Poista</a>
+ 			</td>	 		
+    	</tr>
+     </table>
+	 <a href="/valmistajat" class="btn btn-primary">Paluu valmistajasivulle</a>
+</body>
+</html>
